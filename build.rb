@@ -5,6 +5,11 @@ require 'fileutils'
 source_dir = '.'
 build_dir = 'build'
 
+def render_erb_file(file)
+  content = File.read(file)
+  result = ERB.new(content).result
+end
+
 # Create the build directory if it doesn't exist
 Dir.mkdir(build_dir) unless Dir.exist?(build_dir)
 
