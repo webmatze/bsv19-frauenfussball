@@ -72,7 +72,7 @@ p {
   font-size: 14px;
 }
 
-.button {
+.button, .wp-element-button {
   color: #fff;
   text-align: center;
   background-color: rgba(54, 145, 52, .7);
@@ -84,7 +84,7 @@ p {
   display: inline-block;
 }
 
-.button:hover {
+.button:hover, .wp-element-button:hover {
   background-color: rgba(18, 51, 18, .7);
 }
 
@@ -427,7 +427,7 @@ p {
     text-shadow: none;
   }
 
-  .button {
+  .button, .wp-element-button {
     transition: all .2s;
   }
 
@@ -493,7 +493,7 @@ p {
     text-shadow: none;
   }
 
-  .button {
+  .button, .wp-element-button {
     margin-bottom: 33px;
     padding: 29px 30px;
     font-size: 16px;
@@ -626,7 +626,7 @@ p {
     margin-top: 11px;
   }
 
-  .button {
+  .button, .wp-element-button {
     transition: all .2s;
   }
 
