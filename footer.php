@@ -15,7 +15,7 @@
     <div class="w-container">
       <div class="w-row">
         <div class="left-footer-col w-col w-col-6">
-          <div class="footer-text">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved.</div>
+          <div class="footer-text">&copy; <?php echo date('Y'); ?> Bahrenfelder Sportverein von 1919 e.V. All Rights Reserved.</div>
         </div>
         <div class="footer-nav-bar w-col w-col-6">
           <?php
