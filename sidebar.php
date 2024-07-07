@@ -7,11 +7,7 @@
  * @package The_Minimal
  */
 
-if ( ! is_active_sidebar( 'right-sidebar' ) ) {
-	return;
-}
-?>
-
+if (is_active_sidebar('right-sidebar')) : ?>
   <div class="section grey">
     <div class="w-container">
       <div class="secondary-row w-row">
@@ -25,3 +21,4 @@ if ( ! is_active_sidebar( 'right-sidebar' ) ) {
       </div>
     </div>
   </div>
+<?php endif; ?>

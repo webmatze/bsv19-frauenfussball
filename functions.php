@@ -38,3 +38,38 @@ function bsv19_scripts() {
   wp_enqueue_style( 'bsv19-frauenfussball.webflow.css', get_stylesheet_directory_uri(). '/css/bsv19-frauenfussball.webflow.css'  );
 };
 add_action( 'wp_enqueue_scripts', 'bsv19_scripts' );
+
+function bsv19_theme_setup() {
+  add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
+  register_nav_menus(array(
+    'primary' => __('Primary Menu', 'bsv19'),
+    'footer' => __('Footer Menu', 'bsv19')
+  ));
+}
+add_action('after_setup_theme', 'bsv19_theme_setup');
+
+function bsv19_widgets_init() {
+  register_sidebar(array(
+    'name'          => __('Right Sidebar', 'bsv19'),
+    'id'            => 'right-sidebar',
+    'description'   => __('Add widgets here to appear in your sidebar.', 'bsv19'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>',
+  ));
+}
+add_action('widgets_init', 'bsv19_widgets_init');
+
+class BSV19_Walker_Nav_Menu extends Walker_Nav_Menu {
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+    $output .= '<a href="' . $item->url . '" class="nav-link w-nav-link">' . $item->title . '</a>';
+  }
+}
+
+class BSV19_Walker_Footer_Nav_Menu extends Walker_Nav_Menu {
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+    $output .= '<a href="' . $item->url . '" class="footer-link">' . $item->title . '</a>';
+  }
+}
