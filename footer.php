@@ -32,5 +32,7 @@
     </div>
   </div>
   <?php wp_footer(); ?>
+  <script>window.$ = window.jQuery;</script>
+  <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/webflow.js"></script>
 </body>
 </html>
