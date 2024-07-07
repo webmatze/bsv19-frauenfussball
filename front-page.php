@@ -17,20 +17,22 @@
 <!-- Add the rest of your homepage content here -->
 <div class="section">
     <div class="w-container">
-        <h3 class="heading">Frauenfußball beim BSV19</h3>
+        <h3 class="heading"><?php echo get_the_title(); ?></h3>
         <div class="w-row">
             <div class="w-col w-col-6">
-                <p>Jeden Dienstag und Donnerstag treffen wir uns um 18:30 Uhr zum Training auf dem <a href="https://goo.gl/maps/Kbwof13qwQ62" target="_blank" class="link">Sportpark Baurstraße</a>.</p>
-                <p>Dann trainieren wir Technik, Taktik und Kondition.</p>
-                <p>Aber immer steht bei uns der Spaß im Vordergrund.</p>
+                <?php
+                $page_id = get_option('page_on_front');
+                $content = get_post_field('post_content', $page_id);
+                echo apply_filters('the_content', $content);
+                ?>
             </div>
             <div class="w-col w-col-6">
                 <div data-delay="4000" data-animation="slide" class="slider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
                     <div class="w-slider-mask">
-                        <div class="w-slide"><img src="images/MzLic2kw.jpeg" alt="Teamfoto BSV19" class="image-5"></div>
-                        <div class="w-slide"><img src="images/bsv19-frauenfussball-3.jpg" alt=""></div>
-                        <div class="w-slide"><img src="images/Bild-3.jpg" alt=""></div>
-                        <div class="w-slide"><img src="images/IMG_20181001_155936.jpg" width="604" alt=""></div>
+                        <div class="w-slide"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/MzLic2kw.jpeg" alt="Teamfoto BSV19" class="image-5"></div>
+                        <div class="w-slide"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bsv19-frauenfussball-3.jpg" alt=""></div>
+                        <div class="w-slide"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/Bild-3.jpg" alt=""></div>
+                        <div class="w-slide"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/IMG_20181001_155936.jpg" width="604" alt=""></div>
                     </div>
                     <div class="left-arrow w-slider-arrow-left">
                         <div class="w-icon-slider-left"></div>
