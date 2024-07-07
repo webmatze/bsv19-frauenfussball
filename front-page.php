@@ -29,27 +29,39 @@
         </div>
     </div>
 </div>
+<?php
+$recent_posts = wp_get_recent_posts(array(
+    'numberposts' => 3,
+    'post_status' => 'publish'
+));
+
+if (!empty($recent_posts)) :
+?>
 <div>
     <div class="w-container">
-        <a href="neuigkeiten.html" class="heading">Neuigkeiten</a>
+        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="heading">Neuigkeiten</a>
         <div class="w-dyn-list">
             <div role="list" class="w-dyn-items w-row">
+                <?php
+                foreach ($recent_posts as $post) :
+                    $post_id = $post['ID'];
+                ?>
                 <div role="listitem" class="collection-item w-dyn-item w-col w-col-4">
                     <div>
-                        <a href="#" class="link-block w-inline-block">
-                            <h4 class="w-dyn-bind-empty"></h4><img width="400" alt="" src="" class="image-2 w-dyn-bind-empty">
+                        <a href="<?php echo get_permalink($post_id); ?>" class="link-block w-inline-block">
+                            <h4><?php echo get_the_title($post_id); ?></h4>
+                            <?php echo get_the_post_thumbnail($post_id, 'medium', array('class' => 'image-2')); ?>
                         </a>
                     </div>
-                    <p class="paragraph news-item-text w-dyn-bind-empty"></p>
-                    <a href="#" class="link">Mehr lesen</a>
+                    <p class="paragraph news-item-text"><?php echo wp_trim_words(get_the_excerpt($post_id), 20); ?></p>
+                    <a href="<?php echo get_permalink($post_id); ?>" class="link">Mehr lesen</a>
                 </div>
-            </div>
-            <div class="w-dyn-empty">
-                <div>No items found.</div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </div>
+<?php endif; ?>
 <div>
     <div class="w-container">
         <h3 class="heading">Spielpan und Tabelle</h3>
